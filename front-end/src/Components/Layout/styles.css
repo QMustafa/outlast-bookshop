@@ -1,0 +1,11 @@
+.logo {
+  color: white;
+  padding: 16px 16px; }
+
+.site-layout {
+  margin-left: 200px; }
+
+.ant-layout-sider-collapsed + .site-layout {
+  margin-left: 0; }
+  .ant-layout-sider-collapsed + .site-layout .demo-loadmore-list {
+    width: 100%; }

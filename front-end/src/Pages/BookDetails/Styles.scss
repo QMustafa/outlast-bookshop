@@ -1,0 +1,13 @@
+.book-details-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .book-details-image {
+        width: 15%;
+        max-width: 250px;
+    }
+    .book-details-desc {
+        width: 85%;
+        align-self: center;
+    }
+}

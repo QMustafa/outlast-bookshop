@@ -1,0 +1,11 @@
+.demo-loadmore-list, .search-box {
+  width: 50vw;
+  margin: 0 auto; }
+
+.search-box {
+  margin-bottom: 40px;
+  display: flex; }
+  .search-box .box {
+    width: 90%; }
+  .search-box .button {
+    width: 10%; }

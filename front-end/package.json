@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -10,17 +11,33 @@
     "@types/node": "^12.20.37",
     "@types/react": "^17.0.35",
     "@types/react-dom": "^17.0.11",
+    "@types/react-redux": "^7.1.20",
+    "@types/redux-saga": "^0.10.5",
+    "@types/redux-thunk": "^2.1.0",
+    "antd": "^4.16.13",
+    "axios": "^0.24.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "react-thunk": "^1.0.0",
+    "redux": "^4.1.2",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-saga": "^1.1.3",
+    "redux-thunk": "^2.4.0",
     "typescript": "^4.5.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "build:css": "node-sass src/ -o src/ ",
+    "watch:css": "npm run build:css && node-sass src/ -o src/ -w -r",
+    "start:js": "NODE_ENV=production node_modules/react-scripts/bin/react-scripts.js start",
+    "start": "npm-run-all -p watch:css start:js",
+    "build:js": "NODE_ENV=production node_modules/react-scripts/bin/react-scripts.js build",
+    "build": "npm-run-all build:*",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject",
     "lint": "eslint src",
     "prettier:fix": "prettier --write",
     "prettier:check": "prettier --check .",
@@ -45,9 +62,13 @@
     ]
   },
   "devDependencies": {
+    "@types/node-sass": "^4.11.2",
+    "node-sass": "^6.0.1",
     "husky": "^7.0.4",
     "lint-staged": "^12.0.3",
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "@types/react-router-dom": "^5.1.9",
+    "npm-run-all": "^4.1.5"
   },
   "lint-staged": {
     "src/*.{ts,tsx}": [
