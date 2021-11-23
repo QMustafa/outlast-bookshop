@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  back-end:
+    build: ./back-end
+    command: npm run dev
+    volumes:
+      - .:/outlastBookshop_back-end
+    ports:
+      - "3001:3001"
+  front-end:
+    build: ./front-end
+    command: npm start
+    volumes:
+      - .:/outlastBookshop_front-end
+    ports:
+      - "3000:3000"
