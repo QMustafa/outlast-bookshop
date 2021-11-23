@@ -6,7 +6,13 @@
 .search-box {
   margin-bottom: 40px;
   display: flex; }
-  .search-box .box {
-    width: 90%; }
-  .search-box .button {
-    width: 10%; }
+
+.search-box .box {
+  width: 90%; }
+
+.search-box .button {
+  width: 10%; }
+
+.filled-star {
+  color: orange;
+  font-size: 20px; }

@@ -1,5 +1,5 @@
 import { Dispatch } from 'react';
-import { BooksResponse } from 'src/Api/Constants';
+import { BooksResponse, FavoriteResponse } from 'src/Api/Constants';
 import { BookshopAction } from './Actions';
 import { ActionType } from './ActionTypes';
 
@@ -41,6 +41,16 @@ export const booksSelected = (bookId: number) => {
     dispach({
       type: ActionType.SELECT_BOOK,
       payload: bookId,
+    });
+  };
+};
+
+export const updateFavoriteStatus = (book: FavoriteResponse, isDelete?: boolean) => {
+  return (dispach: Dispatch<BookshopAction>) => {
+    dispach({
+      type: ActionType.UPDATE_FAVORITE_STATUS,
+      payload: book,
+      isDelete: isDelete,
     });
   };
 };

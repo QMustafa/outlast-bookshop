@@ -1,4 +1,5 @@
 export const FETCH_BOOKS_API = 'https://gutendex.com/books/';
+export const FAVORITES_API = 'http://localhost:3001/bookshop/favorites';
 
 type formatesType = {
   'image/jpeg': string;
@@ -23,3 +24,8 @@ export type BooksResponse = {
   previous: string;
   results: BookType[];
 };
+
+export type FavoriteResponse = {
+  id: number,
+  name: string,
+}

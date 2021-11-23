@@ -1,4 +1,4 @@
-import { StarOutlined } from '@ant-design/icons';
+import { StarFilled, StarOutlined } from '@ant-design/icons';
 import { Avatar, Button, List, Select, Skeleton } from 'antd';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,14 +10,19 @@ import './Styles.css';
 
 export const BookList = () => {
   const dispatch = useDispatch();
-  const { fetchBooks, booksSelected } = bindActionCreators(
+  const { fetchBooks, booksSelected, updateFavoriteStatus } = bindActionCreators(
     actionCreators,
     dispatch
   );
   const books = useSelector((state: State) => state.books.books);
+  const favorites = useSelector((state: State) => state.books.favorites);
   const isLoading = useSelector((state: State) => state.books.isLoading);
   const [selectedKeywords, setSelectedKeywords] = useState<any>([]);
 
+  const isFavorite = (id: number) => {
+    return !!favorites.find(fav => fav.id === id);
+
+  };
   const search = () => {
     if (selectedKeywords.length > 0) {
       const queryParams = `search=${selectedKeywords.join('%20')}`;
@@ -72,7 +77,8 @@ export const BookList = () => {
         renderItem={(item) => (
           <List.Item
             actions={[
-              <StarOutlined title='mark as favorite' />,
+              !isFavorite(item.id) ? (<StarOutlined title='mark as favorite' onClick={e => updateFavoriteStatus({id: item.id, name: item.title}, isFavorite(item.id))} />): 
+              (<StarFilled title='remove from favorite' className="filled-star" onClick={e => updateFavoriteStatus({id: item.id, name: item.title}, isFavorite(item.id))} />),
               <Link
                 to={`/books/${item.id}/details`}
                 onClick={(e) => booksSelected(item.id)}

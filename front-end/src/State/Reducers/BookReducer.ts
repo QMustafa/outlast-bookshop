@@ -1,15 +1,17 @@
-import { BooksResponse, BookType } from 'src/Api/Constants';
+import { BooksResponse, BookType, FavoriteResponse } from 'src/Api/Constants';
 import { BookshopAction } from 'src/State/Actions';
 import { ActionType } from 'src/State/ActionTypes';
 
 type StateType = {
   isLoading: boolean;
   books?: BooksResponse;
+  favorites: FavoriteResponse[];
   selectedBook?: BookType;
 };
 
 const initialState: StateType = {
   isLoading: false,
+  favorites: [],
   books: undefined,
   selectedBook: undefined,
 };
@@ -41,6 +43,8 @@ const reducer = (state = initialState, action: BookshopAction): StateType => {
       return { ...state, isLoading: true };
     case ActionType.BOOK_FETCHED:
       return { ...state, isLoading: false, selectedBook: action.payload };
+    case ActionType.FAVORITES_FETCHED: 
+      return { ...state, favorites: action.payload }
     default:
       return state;
   }
