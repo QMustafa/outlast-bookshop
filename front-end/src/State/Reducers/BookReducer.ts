@@ -43,8 +43,8 @@ const reducer = (state = initialState, action: BookshopAction): StateType => {
       return { ...state, isLoading: true };
     case ActionType.BOOK_FETCHED:
       return { ...state, isLoading: false, selectedBook: action.payload };
-    case ActionType.FAVORITES_FETCHED: 
-      return { ...state, favorites: action.payload }
+    case ActionType.FAVORITES_FETCHED:
+      return { ...state, favorites: action.payload };
     default:
       return state;
   }

@@ -10,18 +10,15 @@ import './Styles.css';
 
 export const BookList = () => {
   const dispatch = useDispatch();
-  const { fetchBooks, booksSelected, updateFavoriteStatus } = bindActionCreators(
-    actionCreators,
-    dispatch
-  );
+  const { fetchBooks, booksSelected, updateFavoriteStatus } =
+    bindActionCreators(actionCreators, dispatch);
   const books = useSelector((state: State) => state.books.books);
   const favorites = useSelector((state: State) => state.books.favorites);
   const isLoading = useSelector((state: State) => state.books.isLoading);
   const [selectedKeywords, setSelectedKeywords] = useState<any>([]);
 
   const isFavorite = (id: number) => {
-    return !!favorites.find(fav => fav.id === id);
-
+    return !!favorites.find((fav) => fav.id === id);
   };
   const search = () => {
     if (selectedKeywords.length > 0) {
@@ -77,8 +74,28 @@ export const BookList = () => {
         renderItem={(item) => (
           <List.Item
             actions={[
-              !isFavorite(item.id) ? (<StarOutlined title='mark as favorite' onClick={e => updateFavoriteStatus({id: item.id, name: item.title}, isFavorite(item.id))} />): 
-              (<StarFilled title='remove from favorite' className="filled-star" onClick={e => updateFavoriteStatus({id: item.id, name: item.title}, isFavorite(item.id))} />),
+              !isFavorite(item.id) ? (
+                <StarOutlined
+                  title='mark as favorite'
+                  onClick={(e) =>
+                    updateFavoriteStatus(
+                      { id: item.id, name: item.title },
+                      isFavorite(item.id)
+                    )
+                  }
+                />
+              ) : (
+                <StarFilled
+                  title='remove from favorite'
+                  className='filled-star'
+                  onClick={(e) =>
+                    updateFavoriteStatus(
+                      { id: item.id, name: item.title },
+                      isFavorite(item.id)
+                    )
+                  }
+                />
+              ),
               <Link
                 to={`/books/${item.id}/details`}
                 onClick={(e) => booksSelected(item.id)}

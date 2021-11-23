@@ -14,7 +14,7 @@ interface BooksFetched {
 
 interface FetchFavorites {
   type: ActionType.FETCH_FAVORITES;
-  payload?: any
+  payload?: any;
 }
 
 interface FavoritesFetched {
@@ -24,8 +24,8 @@ interface FavoritesFetched {
 
 interface UpdateFavoriteStatus {
   type: ActionType.UPDATE_FAVORITE_STATUS;
-  payload: FavoriteResponse,
-  isDelete?: boolean
+  payload: FavoriteResponse;
+  isDelete?: boolean;
 }
 
 interface FavoriteStatusUpdated {

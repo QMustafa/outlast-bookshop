@@ -20,7 +20,7 @@ function* fetchBooksList(action: BookshopAction) {
       });
 
       yield put({
-        type: ActionType.FETCH_FAVORITES
+        type: ActionType.FETCH_FAVORITES,
       });
     }
   } catch (err) {}
@@ -57,8 +57,10 @@ function* fetchFavorites() {
 function* updateFavoriteStatus(action: any) {
   try {
     let response: AxiosResponse;
-    const config: AxiosRequestConfig = {headers: {"Content-Type": "application/json"}}
-    if(action.isDelete) {
+    const config: AxiosRequestConfig = {
+      headers: { 'Content-Type': 'application/json' },
+    };
+    if (action.isDelete) {
       response = yield call(favoritesApi.delete, `/${action.payload?.id}`);
     } else {
       response = yield call(favoritesApi.post, '', action.payload, config);

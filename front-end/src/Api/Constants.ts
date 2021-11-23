@@ -26,6 +26,6 @@ export type BooksResponse = {
 };
 
 export type FavoriteResponse = {
-  id: number,
-  name: string,
-}
+  id: number;
+  name: string;
+};

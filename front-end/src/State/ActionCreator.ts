@@ -45,7 +45,10 @@ export const booksSelected = (bookId: number) => {
   };
 };
 
-export const updateFavoriteStatus = (book: FavoriteResponse, isDelete?: boolean) => {
+export const updateFavoriteStatus = (
+  book: FavoriteResponse,
+  isDelete?: boolean
+) => {
   return (dispach: Dispatch<BookshopAction>) => {
     dispach({
       type: ActionType.UPDATE_FAVORITE_STATUS,

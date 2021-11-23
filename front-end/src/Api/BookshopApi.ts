@@ -8,4 +8,3 @@ export const fetchBooksApi = axios.create({
 export const favoritesApi = axios.create({
   baseURL: FAVORITES_API,
 });
-
