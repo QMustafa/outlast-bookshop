@@ -12,7 +12,7 @@ docker-compose up
 
 To run as a deamon: add "-d" at the end of the docker-compose command. 
 
-#Notes: 
+# Notes: 
 No testing is implemented (no time).
 There is a few delay when you click on the star (to mark as favorite or delete from favorite).
 Many enhancement can be done. 
